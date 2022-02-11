@@ -89,14 +89,13 @@ router.post('/forgot', (req, res) => {
 });
 
 
-//-------------------------------------------------------
+//---------------------------------------------------------------
 //--------------------All the Testing APIs-----------------------
 
 
 router.get('/accounts', (req, res) => {
-    res.send("<h1>All Accounts: </h1> \n");
-    let DBaccounts = controllerLayer.getAllAccounts(res);
-    console.log("Got the Accounts",DBaccounts);
+    controllerLayer.getAllAccounts(res);
+    //console.log("Got the Accounts",DBaccounts);
 });
 
 router.post('/accounts', (req, res) => {

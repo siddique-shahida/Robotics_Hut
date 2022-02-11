@@ -1,0 +1,380 @@
+var express = require('express');
+var bodyParser = require('body-parser');
+var path = require('path');
+
+//Making a new Database...
+
+//Initializing our web application...
+var app = express();
+app.use('/', express.static(path.join(__dirname, 'public')));
+//var directory = express.static("public")
+//app.use(directory);
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+
+
+//app.post('/api/change-password', async (req, res) => { });
+
+//Getting Account Credentials for the server to compare with the Database...
+app.post('/login', function (req, res, next) {
+    //let username = req.body.loginname;
+    //let password = req.body.loginpass;
+    
+    //Display the submission on the webpage...
+    console.log('Log In Successful!');
+
+    //Sending Status Code for Testing...
+    res.sendStatus(200);
+});
+
+
+//Inserting Account Credentials in the server...
+app.post('/signup', function (req, res, next) {
+    //let firstname = req.body.firstname;
+    //let lastname = req.body.lastname;
+    //let sex = req.body.gender;
+    let username = req.body.username;
+    let password = req.body.password;
+    //let confirmPassword = req.body.signuppass2;
+
+    if (!username || typeof username !== 'string') {
+        return res.json({ status: 'error', error: 'Invalid username' })
+    }
+
+    if (!password || typeof password !== 'string') {
+        return res.json({ status: 'error', error: 'Invalid password' })
+    }
+
+    if (plainTextPassword.length < 7) {
+        return res.json({
+            status: 'error',
+            error: 'Password too small. Should be atleast 8 characters'
+        })
+    }
+
+    /*
+     const passwordhash = await bcrypt.hash(password, 10)
+
+    try {
+        const response = await User.create({
+            username,
+            password
+        })
+        console.log('User created successfully: ', response)
+    } catch (error) {
+        if (error.code === 11000) {
+            // duplicate key
+            return res.json({ status: 'error', error: 'Username already in use' })
+        }
+        throw error
+    }     
+     */
+
+    //Sending Status Code for Testing...
+    res.sendStatus(200);
+});
+
+//Print on Console...
+app.listen(8080, function () {
+    console.log("App listening on Port 8080!")
+})
+
+-----------------------------------------------------------
+
+$('#button').ajax({
+        url: '/register',
+        contentType: 'application/json',
+        data: JSON.stringify({ username, password }), //access in body
+        type: 'POST',
+        success: function (result) {
+            result.status = 200;
+            console.log("Submit button pressed");
+        }
+    })
+
+
+---------------------------------------------------------------
+
+/*
+     try {
+        const hashedPassword = await bcrypt.hash(req.body.password, 10);
+        //Push in the database from here...
+        users.push({
+            id: Date.now().toString(),
+            username: req.body.username,
+            email: req.body.email,
+            password: hashedPassword
+        })
+        console.log(users);
+        setTimeout(() => {
+            res.redirect('/login');
+        }, 5000);
+    } catch {
+        res.redirect('/login');
+    }
+     */
+
+
+-----------------------------------------------------------------
+
+
+/*
+//API for testing only...
+
+router.get('/', (req, res) => {
+    res.send("Hello from router. Getting resources from API for all projects...")
+});
+
+//Passing a parameter in a functions; we can also pass data with jQuery as well...
+router.get('/:id', (req, res) => {
+    res.send("Hello from router. Getting all resources from API for Project " + req.params.id + ".");
+});
+
+router.post('/', (req, res) =>{
+    res.sendStatus(204);
+});
+
+router.put('/:id', (req, res) => {
+    res.sendStatus("Hello from project update" + req.params.id + "resouces API.");
+});
+
+router.delete('/:id', (req, res) => {
+    res.send("Hello from project delete" + req.params.id + " resources API");
+});
+ */
+
+
+
+-------------------------------------------------------------------------------
+/*
+
+//Export the two functions from this script...
+module.exports = {
+    getProjects,
+    insertProject
+}
+
+/*
+let getAllProjects = (res) => {
+    projectsCollection.find().toArray((err, result) => {
+        if (err) throw err;
+        res.send(result);
+    });
+}
+
+const getProjectByID = (id, res) => {
+    projectsCollection.find().toArray((err, result) => {
+        if (err) throw err;
+        res.send(result);
+    });
+}
+
+const InsertProject = (project, res) => {
+    projectsCollection.insertOne(project, (err, result) => {
+        if (err) throw err;
+        //Sending the result status...
+        res.send({ result: 204 });
+    });
+}
+*/
+
+--------------------------------------------------------------------------------------------
+(TESTING CODE BY PROFESSOR!)
+
+const expect = require("chai").expect;
+const request = require("request");
+
+describe("add two number", () => {
+    const url = "http://localhost:8585/addNumber/2/3";
+
+    it("requests return status code 200", (done) => {
+        request(url, (err, res, body) => {
+            expect(res.statusCode).to.equal(200);
+            done();
+        });
+    });
+
+    it("requests returns status code 200 within the message body", (done) => {
+        request(url, (err, res, body) => {
+            body = JSON.parse(body);
+            expect(body.statusCode).to.equal(200);
+            done();
+        });
+    });
+
+    it("requests returns a number as the result in the body", (done) => {
+        request(url, (err, res, body) => {
+            body = JSON.parse(body);
+            expect(body.result).to.be.a('number');
+            done();
+        });
+    });
+
+    it("requests returns 5 as the result in the body", (done) => {
+        request(url, (err, res, body) => {
+            body = JSON.parse(body);
+            expect(body.result).to.equal(5);
+            done();
+        });
+    });
+
+});
+
+describe("add two string", () => {
+    const url = "http://localhost:8585/addNumber/a/b";
+
+    it("should not retunr 200 as status code", (done) => {
+        request(url, (err, res, body) => {
+            expect(res.statusCode).to.not.equal(200);
+            done();
+        });
+    });
+
+    it("should return correct error message", (done) => {
+        request(url, (err, res, body) => {
+            body = JSON.parse(body);
+            expect(body.err).to.equal('Both input should be a number');
+            done();
+        });
+    });
+
+});
+
+describe("add one number and one string", () => {
+    const url = "http://localhost:8585/addNumber/a/2";
+
+    it("should not retunr 200 as status code", (done) => {
+        request(url, (err, res, body) => {
+            expect(res.statusCode).to.not.equal(200);
+            done();
+        });
+    });
+
+    it("should return correct error message", (done) => {
+        request(url, (err, res, body) => {
+            body = JSON.parse(body);
+            expect(body.err).to.equal('Both input should be a number');
+            done();
+        });
+    });
+
+});
+
+describe("add two number where input has extra space", () => {
+
+    const url = "http://localhost:8585/addNumber/2  /3";
+
+    it("requests return status code 200", (done) => {
+        request(url, (err, res, body) => {
+            expect(res.statusCode).to.equal(200);
+            done();
+        });
+    });
+
+    it("requests returns status code 200 within the message body", (done) => {
+        request(url, (err, res, body) => {
+            body = JSON.parse(body);
+            expect(body.statusCode).to.equal(200);
+            done();
+        });
+    });
+
+    it("requests returns a number as the result in the body", (done) => {
+        request(url, (err, res, body) => {
+            body = JSON.parse(body);
+            expect(body.result).to.be.a('number');
+            done();
+        });
+    });
+
+    it("requests returns 5 as the result in the body", (done) => {
+        request(url, (err, res, body) => {
+            body = JSON.parse(body);
+            expect(body.result).to.equal(5);
+            done();
+        });
+    });
+
+
+});
+
+
+-------------------------------------------------------------------------------------------
+
+const expect = require("chai").expect;
+const request = require("request");
+
+const dbo = require("../db/conn");
+
+
+describe("get all projects", () => {
+    const url = "http://localhost:8585/api/projects";
+
+    before((done) => {
+        dbo.connect(() => {
+            const projectsCollection = dbo.getDB().collection("projects");
+            projectsCollection.deleteMany({});
+            for (let index = 1; index < 11; index++) {
+                projectsCollection.insertOne({
+                    projectID: 'test' + index,
+                    title: 'test ' + index,
+                    info: 'test info ' + index,
+                    img: 'img ' + index
+                })
+            }
+            setTimeout(() => {
+                dbo.disconnect()
+                done();
+            }, 1000);
+        })
+    });
+
+    it("requests return status code 200", (done) => {
+        request(url, (err, res, body) => {
+            expect(res.statusCode).to.equal(200);
+            done();
+        });
+    });
+
+    it("requests body type is equal to array", (done) => {
+        request(url, (err, res, body) => {
+            body = JSON.parse(body);
+            expect(body).to.be.a("array");
+            done();
+        });
+    });
+
+    it("requests body returns exactly 10 projects", (done) => {
+        request(url, (err, res, body) => {
+            body = JSON.parse(body);
+            expect(body.length).to.equal(10);
+            done();
+        });
+    });
+
+
+    after(() => {
+        dbo.connect(() => {
+            const projectsCollection = dbo.getDB().collection("projects");
+            projectsCollection.deleteMany({});
+            dbo.disconnect();
+        })
+    });
+});
+
+
+----------------------------
+Annie
+Linear Regression Model
+/images/linear.PNG
+The regression model is a linear condition that consolidates a particular arrangement of informatory values (x) the answer for which is the anticipated output for that set of information values (y). Both the information values (x) and the output are numeric.
+
+Jake
+Smart farming: the future of agriculture
+Although modern technologies have been used in agriculture for some time now, the IoT, GPS, big data, drones, and robotics are now taking the cultivation of fruit and vegetables to a completely new level. Read on to find out the potential of smart farming!
+/images/smartfarms.jpg
+
+
+

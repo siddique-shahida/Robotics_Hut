@@ -1,4 +1,4 @@
-const submitButton = document.getElementById('button');
+//const submitButton = document.getElementById('button');
 
 function checkResponse(res) {
     if (res.ok) {
@@ -39,4 +39,4 @@ function registerUser(event) {
     
 }
 
-submitButton.addEventListener("click", registerUser, false);
+//submitButton.addEventListener("click", registerUser, false);

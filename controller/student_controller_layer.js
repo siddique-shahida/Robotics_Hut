@@ -113,7 +113,7 @@ const createBlogPage = (newblog) => {
         if (err) {
             throw err;
         } else {
-            console.log('HTML File moved in the Public Folder...')
+            console.log('HTML File moved in the NewBlogs Folder...')
         }
     });
 }

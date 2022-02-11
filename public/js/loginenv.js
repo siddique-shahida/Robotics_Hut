@@ -1,4 +1,4 @@
-const loginButton = document.getElementById('button');
+//const loginButton = document.getElementById('button');
 
 function checkResponse(res) {
     if (res.ok) {
@@ -23,9 +23,7 @@ function loginUser(event) {
         body: JSON.stringify(loguser),
         headers: { 'Content-Type': 'application/json' }
     }).then(res => checkResponse(res))
-        .then(res => res.json())
-        .then(json => console.log(json))
         .catch(err => console.log(err))
 }
 
-loginButton.addEventListener("click", loginUser, false);
+//loginButton.addEventListener("click", loginUser, false);

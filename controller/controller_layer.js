@@ -48,7 +48,7 @@ const insertDummies = (accounts) => {
     });
 }
 
-const getAllAccounts = () => {
+const getAllAccounts = (res) => {
     console.log('Getting all the current accounts available on the Accounts API...');
     Accounts.find().toArray(function (err, result) {
         if (err) {
@@ -56,8 +56,7 @@ const getAllAccounts = () => {
         }
         else {
             //console.log("All the Accounts Found: \n", result);
-            let accounts = { result};
-            return accounts;
+            res.send(result);
         }
         
     });

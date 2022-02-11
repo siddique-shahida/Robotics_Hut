@@ -17,11 +17,12 @@ router.get('/homepage', (req, res) => {
     res.render('./homepage.ejs');
 });
 
+
+
 //Contact Us APIs...
 router.get('/contact', (req, res) => {
     res.render('./contact.ejs');
 });
-
 
 router.post('/contact', (req, res) => {
     //Sending an Email from here
@@ -40,6 +41,7 @@ router.post('/contact', (req, res) => {
 });
 
 
+
 //FAQs API...
 router.get('/FAQs', (req, res) => {
     res.render('./faqs.ejs');
@@ -50,47 +52,51 @@ router.post('/FAQs', (req, res) => {
 });
 
 
+
 //Quiz API...
 router.get('/Quiz', (req, res) => {
     res.render('./quiz.ejs');
 });
 
-//Blogs API...
 
+
+//Blogs API...
 router.get('/blogsandprojects', (req, res) => {
-    console.log("All good!");
+    res.render('./blogsandprojects.ejs');
 });
 
 
-//Uploading our Project list contents on request...
+
+//About Us API...
+router.get('/about', (req, res) => {
+    res.render("about.ejs");
+});
+
+
+
+//---------------------------------------------------------------
+//--------------------All the Testing APIs-----------------------
 router.get('/blogs', (req, res) => {
-    blogsController.findAllBlogs(res);
+    studentControllerLayer.findAllBlogs(res);
 });
 
 router.post('/blogs', (req, res) => {
     console.log('body', req.body);
 
     let newblog = req.body;
-    blogsController.insertNewBlog(newblog);
+    studentControllerLayer.insertNewBlog(newblog);
 });
-
 
 router.get('/newblog', (req, res) => {
     res.send(" ");
 });
 
-
 router.post('/newblog', (req, res) => {
     let newblog = req.body;
     console.log("New Blog sent to the Server: ", newblog);
-    blogsController.createBlogPage(newblog);
+    studentControllerLayer.createBlogPage(newblog);
 });
 
-
-//About Us API...
-router.get('/about', (req, res) => {
-    res.send(" ");
-});
 
 //Exporting all the contents for our script...
 module.exports = router
