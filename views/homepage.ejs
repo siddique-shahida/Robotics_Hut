@@ -9,6 +9,7 @@
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,10 +19,11 @@
     <!-- My CSS -->
     <link rel="stylesheet" href="/css/style.css">
 
+    <!--Bootstrap Script for the Modal-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
-
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0008C1;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#" style="color: white;">The Robotics Hut</a>
@@ -38,10 +40,10 @@
                         <a class="nav-link" href="/student/contact">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/student/aboutus">About Us</a>
+                        <a class="nav-link" href="/student/about">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/student/blogs">Blogs and Projects</a>
+                        <a class="nav-link" href="/student/blogsandprojects">Blogs and Projects</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/student/FAQs">FAQs</a>
@@ -53,7 +55,6 @@
             </div>
         </div>
     </nav>
-
 
 
     <div class="card mb-3 center-h" style="width: 70%; border:none;">
@@ -88,90 +89,42 @@
             </div>
             <div class="col-md-4">
                 <!-- style="max-height: 70%; -->
-                <img src="/images/wall-e_hi.jpg" class="img-fluid rounded-3" alt="...">
+                <img src="/images/wall-e_hi.jpg" class="img-fluid rounded-3" style="padding:10px" alt="...">
             </div>
         </div>
     </div>
 
-
-    <div class=" blogs">
+    <!--Dynamically created Blog Cards-->
+    <div>
         <h2>&nbsp;&nbsp;Explore</h2>
 
-        <div class="row row-cols-1 row-cols-md-2 g-4">
-            <div class="col">
-                <div class="card">
-                    <img src="/images/MicrosoftTeams-image-(7).png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae
-                            corporis
-                            quidem consequuntur, libero laudantium minima earum architecto quisquam. Non illum
-                            unde at
-                            debitis optio eum omnis dignissimos dolorem fuga. Perferendis?
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img src="/images/MicrosoftTeams-image-(8).png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                            Laboriosam
-                            quaerat dolorem sunt sed cumque consectetur optio, odit voluptatem omnis eum laborum
-                            consequuntur suscipit perspiciatis tempore quia, aliquid, autem debitis accusantium.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img src="/images/MicrosoftTeams-image-(9).png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
-                            voluptatem
-                            aut consequatur est assumenda quibusdam pariatur error sit esse explicabo numquam,
-                            voluptas
-                            quas molestiae cum neque officia eos id distinctio?
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img src="/images/MicrosoftTeams-image-(3).png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
-                            voluptatum nemo, a doloremque consequuntur voluptate, laboriosam deserunt ipsa
-                            ducimus
-                            tempore eveniet optio, ea necessitatibus. Voluptates cum aspernatur fugiat nisi
-                            molestiae.
-                        </p>
-                    </div>
-                </div>
-            </div>
+        <div class="row row-cols-1 row-cols-md-2 g-4" id="blogs-generate">
+            <!--Dynamically Cards will be generate here...-->
         </div>
-
     </div>
+
     <br><br><br>
     <footer class="footer mt-auto py-3 bg-light text-center">
-        <div class="container">
-            <span class="text-muted">Copyright &copy; Robotics Hut</span>
-        </div>
+         <div class="container">
+               <span class="text-muted">Copyright &copy; Robotics Hut</span>
+         </div>
     </footer>
 
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-            crossorigin="anonymous">
-    </script>
-</body>
+     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
+     <!--Popper.js-->
+     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+             integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+             crossorigin="anonymous"></script>
+
+     <!-- Include all compiled plugins (below), or include individual files as needed -->
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+     <!-- Compiled and minified JavaScript -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+     <script src="../js/blogcreator.js"></script>
+</body>
 </html>

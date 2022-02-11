@@ -55,12 +55,42 @@ router.get('/Quiz', (req, res) => {
     res.render('./quiz.ejs');
 });
 
-
-//Quiz Result API...
-
 //Blogs API...
-//About Us API...
 
+router.get('/blogsandprojects', (req, res) => {
+    console.log("All good!");
+});
+
+
+//Uploading our Project list contents on request...
+router.get('/blogs', (req, res) => {
+    blogsController.findAllBlogs(res);
+});
+
+router.post('/blogs', (req, res) => {
+    console.log('body', req.body);
+
+    let newblog = req.body;
+    blogsController.insertNewBlog(newblog);
+});
+
+
+router.get('/newblog', (req, res) => {
+    res.send(" ");
+});
+
+
+router.post('/newblog', (req, res) => {
+    let newblog = req.body;
+    console.log("New Blog sent to the Server: ", newblog);
+    blogsController.createBlogPage(newblog);
+});
+
+
+//About Us API...
+router.get('/about', (req, res) => {
+    res.send(" ");
+});
 
 //Exporting all the contents for our script...
 module.exports = router
