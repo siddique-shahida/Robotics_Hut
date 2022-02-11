@@ -1,0 +1,77 @@
+
+(at register.js)
+fetch('http://localhost:8080/register', {
+        method: 'POST',
+        body: JSON.stringify(newuser),
+        headers: { 'Content-Type': 'application/json' }
+    });
+
+(at main router testing.js)
+request({
+            url: url,
+            method: 'POST',
+            'headers': {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                test: 'ali',
+                email:'asd@asd.com'
+            }),
+
+
+../js/contact.js
+
+
+
+url.substring(url.lastIndexOf('='+1)
+
+//let idArr = ids.split("&");
+            //let array = url.split("=");
+
+
+fetch('http://localhost:8080/accounts', {
+        method: 'POST',
+        body: JSON.stringify(newuser),
+        headers: { 'Content-Type': 'application/json' }
+    }).then(res => checkResponse(res))
+        .then(res => res.json())
+      .catch(err => console.log(err))
+    console.log("Account sent to testing API as well...")
+
+
+
+    describe("Testing whether our Sign up Page can take in IDs from URL", function () {
+    var url = "http://localhost:8080/register/?fname=jake&lname=thisjake&email=jake@jake&username=jake&password=jake";
+
+    it("expects all the ids to be a string", function (done) {
+        request(url, function () {
+            let array = url.split("=");
+
+            //Extracting the fname id...
+            let ids = array[1].split("&");
+            let fname = ids[0];
+
+            //Extracting the lname id...
+            ids = array[2].split("&");
+            let lname = ids[0];
+
+            //Extracting the email id...
+            ids = array[3].split("&");
+            let email = ids[0];
+
+            //Extracting the username id...
+            ids = array[4].split("&");
+            let username = ids[0];
+
+            //Extracting the password id...
+            let password = array[5];
+
+            //console.log(fname, lname, email, username, password);
+            expect(fname).to.be.a("string");
+            expect(lname).to.be.a("string");
+            expect(email).to.be.a("string");
+            expect(username).to.be.a("string");
+            expect(password).to.be.a("string");
+
+            done();
+        });
+    });
+});
