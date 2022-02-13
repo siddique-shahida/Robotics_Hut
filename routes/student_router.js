@@ -8,7 +8,6 @@ const studentControllerLayer = require("../controller/student_controller_layer")
 //Importing our Nodemailer and MailGun Service...
 const sendMail = require('../services/nodemail');
 
-
 //-------------------------------------------------------
 //--------------------All the APIs-----------------------
 
