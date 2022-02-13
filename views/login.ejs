@@ -45,7 +45,7 @@
                                 <input type="password" name="password" id="password" class="form-control mb-4" required>
                             </div>
                             <div class="d-grid gap-2">
-                                <button type="submit" class="signUpButton btn btn-primary mb-4 py-2">Sign In</button>
+                                <button type="submit" onclick="loginUser()" class="signUpButton btn btn-primary mb-4 py-2">Sign In</button>
                             </div>
                         </form>
 
@@ -53,6 +53,13 @@
                             <a href="/register" class="link-secondary">
                                 You're not Registered? What're you doing mate!<br>
                                 <strong>Sign Up</strong>
+                            </a>
+                        </div>
+                        <br>
+                        <div>
+                            <a href="/forgot" class="link-secondary">
+                                Forgot your Password?<br>
+                                <strong>Get my Password Back</strong>
                             </a>
                         </div>
                     </div>
@@ -65,7 +72,7 @@
             </div>
         </div>
     </div>
-    <script src="loginenv.js"></script>
+    <script src="../js/loginenv.js"></script>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>

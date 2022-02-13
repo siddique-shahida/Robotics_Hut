@@ -25,7 +25,7 @@ const A2 = {
 const A3 = {
     firstname: 'Anika',
     lastname: 'Farha',
-    email: "mskashif@deakin.edu.au",
+    email: "afarha@deakin.edu.au",
     username: 'Admin3',
     password: 'tusi1234'
 };
@@ -48,9 +48,22 @@ const insertDummies = (accounts) => {
     });
 }
 
-const findAccount = (account) => {
-    console.log('Find Account Function...')
+const getAllAccounts = (res) => {
+    console.log('Getting all the current accounts available on the Accounts API...');
+    Accounts.find().toArray(function (err, result) {
+        if (err) {
+            throw err;
+        }
+        else {
+            //console.log("All the Accounts Found: \n", result);
+            res.send(result);
+        }
+        
+    });
+}
 
+const findAccount = (account) => {
+    console.log('Find Account Function for the Log In Page...');
     Accounts.find({ username: account.username, password: account.password }).toArray(function (err, result) {
         if (err) {
             throw err;
@@ -64,6 +77,23 @@ const findAccount = (account) => {
     return loggedIn;
 }
 
+const findAccountByEmail = (user) => {
+    console.log("Finding our Account by email...");
+    Accounts.find({ email : user }).toArray(function (err, result) {
+        if (err) {
+            throw err;
+            console.log("Account not found!");
+        }
+        else {
+            console.log("Account Found: ", result);
+            let foundemail = result.email;
+            let foundpassword = result.password;
+            return foundemail, foundpassword;
+        }
+    });
+
+}
+
 const registerUser = (account, res) => {
     //Insert a project into the DB collection...
     Accounts.insertOne(account, (err, result) => {
@@ -73,7 +103,6 @@ const registerUser = (account, res) => {
             //Adding contents into an array...
             //dummyAccounts.push(account);
             console.log('Account Inserted: ', result);
-            //res.json({ result: [result.username, result.lastname, result.username, result.email, result.password]});
         }
     });
 }
@@ -85,6 +114,6 @@ setTimeout(function () {
 
 
 module.exports = {
-    findAccount, registerUser
+    getAllAccounts, findAccount, registerUser, findAccountByEmail
 }
 

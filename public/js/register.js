@@ -28,15 +28,15 @@ function registerUser(event) {
     }).then(res => checkResponse(res))
         .catch(err => console.log(err))
 
-    /*
-    fetch('http://localhost:8080/accounts', {
-        method: 'POST',
-        body: JSON.stringify(newuser),
-        headers: { 'Content-Type': 'application/json' }
-    }).then(res => checkResponse(res))
-      .catch(err => console.log(err))
-    console.log("Account sent to testing API as well...")
-     */
+    //fetch('http://localhost:8080/accounts', {
+    //    method: 'POST',
+    //    body: JSON.stringify(newuser),
+    //    headers: { 'Content-Type': 'application/json' }
+    //}).then(res => checkResponse(res))
+    //    .then(res => res.json())
+    //  .catch(err => console.log(err))
+    //console.log("Account sent to testing API as well...")
+    
 }
 
 //submitButton.addEventListener("click", registerUser, false);

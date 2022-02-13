@@ -2,16 +2,129 @@
 <html lang="en">
 
 <head>
-    <title>Home Page</title>
-    <meta charset="utf-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotics Hut - Homepage</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!--Bootstrap Script for the Modal-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
-    <div>
-            <h1 class="text-center">HOME PAGE</h1>
-            <a href="/login">Sign Out</a>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0008C1;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" style="color: white;">The Robotics Hut</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-lg-flex flex-lg-row-reverse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/student/contact">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/student/about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/student/blogsandprojects">Blogs and Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/student/FAQs">FAQs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Sign Out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="card mb-3 center-h" style="width: 70%; border:none;">
+        <div class="row g-0">
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h2 class="card-title">Welcome to the Robotics Hut</h2>
+                    <p class="card-text fw-light">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio beatae
+                        necessitatibus libero, dolor dignissimos sapiente nam, et mollitia nisi eveniet aut tenetur
+                        perspiciatis expedita possimus ea numquam eligendi distinctio dicta.
+                        Reprehenderit illo soluta nemo cupiditate numquam officiis similique, asperiores sunt voluptas
+                        dicta eveniet incidunt error saepe iure minima distinctio praesentium repellendus facere
+                        perspiciatis aliquam dolore. At facilis iusto reprehenderit ipsa?
+                        Labore eos nesciunt, nulla, harum modi dolorum repellat sunt aut exercitationem ratione
+                        inventore explicabo cupiditate? Inventore hic facilis sequi sunt sit deserunt illum, saepe,
+                        commodi quibusdam delectus quod fugit unde!
+                        Iste ea tenetur accusamus voluptatibus odio error nostrum maiores quia reiciendis eveniet
+                        laboriosam unde aspernatur iusto eos autem, nobis saepe, mollitia possimus. Blanditiis aliquid
+                        perferendis non ea nobis facilis placeat?
+                        Sit exercitationem culpa obcaecati architecto suscipit voluptates distinctio illo eveniet
+                        delectus, magnam odio doloribus soluta quod! Porro at, nobis, asperiores accusamus dolore
+                    </p>
+
+                    <br><br>
+
+                    <a href="https://www.youtube.com/watch?v=6feEE716UEk" class="btn btn-dark btn-lg"
+                       role="button">Watch Video</a>
+
+                    <!-- <p class="card-text"><small class="text-muted">26/01/2022</small></p> -->
+                </div>
+            </div>
+            <div class="col-md-4">
+                <!-- style="max-height: 70%; -->
+                <img src="/images/wall-e_hi.jpg" class="img-fluid rounded-3" style="padding:10px" alt="...">
+            </div>
+        </div>
     </div>
+
+    <!--Dynamically created Blog Cards-->
+    <div>
+        <h2>&nbsp;&nbsp;Explore</h2>
+
+        <div class="row row-cols-1 row-cols-md-2 g-4" id="blogs-generate">
+            <!--Dynamically Cards will be generate here...-->
+        </div>
+    </div>
+
+    <br><br><br>
+    <footer class="footer mt-auto py-3 bg-light text-center">
+         <div class="container">
+               <span class="text-muted">Copyright &copy; Robotics Hut</span>
+         </div>
+    </footer>
+
+     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+     <!--Popper.js-->
+     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+             integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+             crossorigin="anonymous"></script>
+
+     <!-- Include all compiled plugins (below), or include individual files as needed -->
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+     <!-- Compiled and minified JavaScript -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+     <script src="../js/blogcreator.js"></script>
 </body>
 </html>
