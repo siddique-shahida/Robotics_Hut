@@ -73,9 +73,6 @@ router.post('/forgot', (req, res) => {
     let email, password = controllerLayer.findAccountByEmail(fromEmail);
     console.log(email, password);
 
-    email = "jake@jake";
-    password = "jake";
-
     text = text + "\n Account: " + email + "\n Your Password: " + password + "\n Have a wonderful day!";
     console.log(text);
 
