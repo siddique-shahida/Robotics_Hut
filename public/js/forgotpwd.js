@@ -17,8 +17,7 @@ function sendPassword(event) {
         body: JSON.stringify(data),
         headers: { 'Content-Type': 'application/json' }
     }).then(console.log('Server recieved our data'))
-        .then(res => res.json())
-        .catch(err => console.log(err));
+        .then(res => res.json());
 
     //Displays confirmation message of the email sent with the password...
     displayMessage(event);

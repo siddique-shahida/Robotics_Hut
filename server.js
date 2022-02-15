@@ -13,28 +13,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.json());
 
-//Creating an HTTP Server and binding it with the web application.
-var http = require('http').createServer(app);
-var io = require('socket.io')(http);
-
-app.use((req, res, next) => {
-    req.io = io;
-    return next();
-});
-
-
-//Implementing our sockets in our student Router
-
-//Broadcasting our chat message to other clients from the FAQ Page...
-io.on('connection', (socket) => {
-    console.log("Chat Feature Working...");
-
-    socket.on('chat:msg', (msg) => {
-        console.log(msg);
-        socket.broadcast.emit('chat:broadcast', msg);
-    });
-});
-
 //Initializing new routers...
 let accountsRouter = require('./routes/main_router');
 app.use('/', accountsRouter);

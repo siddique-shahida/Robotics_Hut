@@ -1,7 +1,7 @@
-const sendButton = document.querySelector('button');
+//const sendButton = document.querySelector('button');
 
-function sendEmail(event) {
-    event.preventDefault();
+function sendEmail() {
+    //event.preventDefault();
     const fromEmail = document.querySelector('#email').value;
     const subject = document.querySelector('#subject').value;
     const text = document.querySelector('#message').value;
@@ -18,4 +18,4 @@ function sendEmail(event) {
         .catch(err => console.log(err));
 }
 
-sendButton.addEventListener("click", sendEmail, false);
+//sendButton.addEventListener("click", sendEmail, false);

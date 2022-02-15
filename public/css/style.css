@@ -29,8 +29,6 @@ a {
     object-fit: cover;
 }
 
-
-/*Main Page*/
 .center-h {
     margin: auto;
     width: 50%;
@@ -64,22 +62,3 @@ a {
         background-color: rgba(0, 0, 0, 0);
         border: none;
     }
-
-    /*FAQ Page*/
-.msg-right {
-    padding: 5px;
-    float: left;
-    border: 1px solid black;
-    border-radius: 10px;
-    background-color: antiquewhite;
-    color: black;
-}
-
-.msg-left {
-    padding: 5px;
-    float: right;
-    border: 1px solid black;
-    border-radius: 10px;
-    background-color: wheat;
-    color: black;
-}

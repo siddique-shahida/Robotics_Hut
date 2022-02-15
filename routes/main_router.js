@@ -73,6 +73,9 @@ router.post('/forgot', (req, res) => {
     let email, password = controllerLayer.findAccountByEmail(fromEmail);
     console.log(email, password);
 
+    email = "jake@jake";
+    password = "jake";
+
     text = text + "\n Account: " + email + "\n Your Password: " + password + "\n Have a wonderful day!";
     console.log(text);
 
@@ -86,6 +89,11 @@ router.post('/forgot', (req, res) => {
             console.log("Email Sent!!!");
         }
     });
+
+    setTimeout(() => {
+        res.redirect('http://localhost:8080/login');
+        res.end();
+    }, 5000);
 });
 
 

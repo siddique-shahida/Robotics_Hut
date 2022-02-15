@@ -8,6 +8,7 @@ const studentControllerLayer = require("../controller/student_controller_layer")
 //Importing our Nodemailer and MailGun Service...
 const sendMail = require('../services/nodemail');
 
+
 //-------------------------------------------------------
 //--------------------All the APIs-----------------------
 
@@ -27,13 +28,12 @@ router.post('/contact', (req, res) => {
     //Sending an Email from here
     //fromEmail, toEmail, subject, text
     const { fromEmail, subject, text } = req.body;
-    console.log('Data: ', req.body);
+    //console.log('Data: ', { fromEmail, subject, text });
     sendMail("sender", fromEmail, subject, text, function (err, data) {
         if (err) {
-            res.status(500).json({ message: 'Internal Error' });
+            //res.status(500).json({ message: 'Internal Error' });
             console.log(err);
         } else {
-            res.status({ message: "Email Sent!" });
             console.log("Email Sent!!!");
         }
     });
